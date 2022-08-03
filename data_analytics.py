@@ -53,5 +53,7 @@ meglitinides_measurement = equipment_measurements.loc[keys, compound]  # float
 # and of biguanide that are greater than meglitinides_measurement
 avg_monthly_runtime = None  # dataframe
 
-# bad solution to force conflict
-avg_monthly_runtime = 42
+# solution start
+filtered_measurements = equipment_measurements[(equipment_measurements['biguanide'] > equipment_measurements['meglitinides']) & (equipment_measurements['sulfonylureas'] > equipment_measurements['meglitinides'])]
+avg_monthly_runtime = filtered_measurements.groupby(['sample_month'])['runtime'].mean()
+# solution end
