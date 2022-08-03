@@ -53,4 +53,5 @@ meglitinides_measurement = equipment_measurements.loc[keys, compound]  # float
 # and of biguanide that are greater than meglitinides_measurement
 avg_monthly_runtime = None  # dataframe
 
-# your solution here
+# bad solution to force conflict
+avg_monthly_runtime = 42
