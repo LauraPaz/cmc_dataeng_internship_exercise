@@ -38,7 +38,11 @@ equipments.index.name = "equipment_name"
 # for meglitinides sampled the 18th of Decembre
 equipment_measurements = None  # dataframe
 
-# your solution here
+# solution start
+equipment_measurements = equipments.join(measurements) # or concat
+equipment_measurements['equipment_id'] = ['EQ'+str(i) for i in equipment_measurements.index]
+equipment_measurements.set_index(['equipment_id', 'sample_day', 'sample_month'], inplace=True)
+# solution end
 
 keys = ("EQ2", "18", "12")
 compound = "meglitinides"
